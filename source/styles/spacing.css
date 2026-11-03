@@ -1,0 +1,131 @@
+/* Spacing system. One 4px scale, loaded last so every screen follows the same rules:
+   gutter = page edge to content, gap = between cards, pad = inside a card,
+   tabs and segments sit on the scale, and a separator always has the same space on both sides. */
+:root{
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px; --s8:32px;
+  --gutter:var(--s8); --gap:var(--s4); --pad:var(--s5);
+}
+@media (max-width:640px){ :root{ --gutter:var(--s4); --gap:var(--s3); --pad:var(--s4); } }
+
+/* page and title bar share the gutter */
+.top{padding-left:var(--gutter);padding-right:var(--gutter)}
+.page{padding:var(--s6) var(--gutter) var(--s8)}
+.home{margin:calc(-1 * var(--s6)) calc(-1 * var(--gutter)) 0}
+.toolbar{gap:var(--s3);margin-bottom:var(--gap)}
+
+/* cards and the grids that hold them */
+.card{padding:var(--pad)}
+.table-card,.cal{padding:0}
+.card h3{margin-bottom:var(--s4)}
+.know,.approve,.create-grid,.learn-grid,.settings,.p-grid,.kpis,.below,.adv-two,.adv-pair,.adv-slots,.adv-stack,
+.adetail,.pm,.profile,.side-stats{gap:var(--gap)}
+.kpis{margin-bottom:var(--gap)}
+.below{margin-top:var(--s6)}
+.adv-book{margin-bottom:var(--gap)}
+
+/* underline tabs run edge to edge across the top of their card */
+.ed-tabs{margin:calc(-1 * var(--pad)) calc(-1 * var(--pad)) var(--s4);padding:0 var(--s3);gap:var(--s1)}
+.ed-tabs button{padding:var(--s4) var(--s3) calc(var(--s4) - 2px);gap:var(--s2)}
+.ed-sub{gap:var(--s2);margin-bottom:var(--s4)}
+.ed-sub button{padding:var(--s2) var(--s3)}
+
+/* segmented controls */
+.seg{padding:var(--s1);gap:var(--s1)}
+.seg button{padding:6px var(--s3)}
+
+/* editor */
+.lock{margin:var(--s4) 0 0;padding:var(--s3) var(--s4);gap:var(--s3)}
+.editor .lock{margin:0 0 var(--s4)}
+.ed-row{gap:var(--s4);margin:0 0 var(--s4)}
+.ed-ctl{gap:var(--s2)}
+.ed-split{gap:var(--s6)}
+.ed-fields{gap:var(--s4)}
+.ed-preview{gap:var(--s2)}
+.lp-box{padding:var(--s3) var(--s4) var(--s4);gap:var(--s3)}
+.rewrite{gap:var(--s2)}
+.field{gap:var(--s2)}
+.form{gap:var(--s4)}
+
+/* lists of selectable rows: same padding, a hairline of air between rows */
+.sugg .sg-group{gap:var(--s1)}
+.sg{padding:var(--s3);gap:var(--s3)}
+.sg-gh{padding:0 var(--s3) var(--s2)}
+.sg-group+.sg-group{margin-top:var(--s3);padding-top:var(--s4)}
+.list-pane{gap:var(--s2)}
+.list-pane>.seg,.list-pane>p,.list-pane>h3{margin-bottom:var(--s2)}
+.arow{padding:var(--s3);gap:var(--s3)}
+.arow-tags{gap:var(--s2);margin-top:var(--s2)}
+.mlist{gap:var(--s1)}
+.mrow{padding:var(--s2) var(--s3);gap:var(--s3)}
+.row-link{padding:var(--s3) var(--s2);margin:0 calc(-1 * var(--s2));gap:var(--s3)}
+
+/* separated rows inside a card: equal space above and below the line */
+.nba{padding:var(--s3) 0;gap:var(--s3)}
+.ext{padding:var(--s3) 0}
+.set-row{padding:var(--s4) 0;gap:var(--s4)}
+.sg-group+.sg-group,.set-row,.nba,.ext{border-color:var(--line)}
+h3+.set-row{border-top:0;padding-top:var(--s1)}
+
+/* checks column */
+.checks{gap:var(--s4)}
+.ck{gap:var(--s3)}
+.who-signs{padding:var(--s3) var(--s4);gap:var(--s1)}
+.ck-actions{gap:var(--s2);padding-top:var(--s4);border-top:1px solid var(--line)}
+
+/* approve */
+.ad-head{gap:var(--s4);margin-bottom:var(--s4)}
+.ch-strip{gap:var(--s2);margin-bottom:var(--s4)}
+.ch-strip button{padding:var(--s2) var(--s4);gap:var(--s2)}
+.ad-preview{gap:var(--s6)}
+.ad-notes{gap:var(--s4)}
+.aud-total{gap:var(--s3);margin-bottom:var(--s2)}
+.excl{gap:var(--s2);margin-top:var(--s4)}
+.sera-note{gap:var(--s3);margin-top:var(--s4);padding:var(--s3) var(--s4)}
+.decide-row{gap:var(--s3)}
+.decide .field{margin-bottom:var(--s4)}
+
+/* plan */
+.warn-bar{gap:var(--s3);padding:var(--s3) var(--s4);margin-bottom:var(--s3)}
+.type-legend{gap:var(--s4);margin:0 0 var(--s3)}
+.plan-ch{gap:var(--s2)}.plan-ch li{padding:var(--s2) var(--s3);gap:var(--s3)}
+.plan-ch .grow{min-width:0}.plan-ch .grow small{display:block;margin-top:2px;overflow-wrap:anywhere}.plan-ch li>small{white-space:nowrap}
+.hist{gap:var(--s3)}
+.facts{gap:var(--s2) var(--s3)}
+
+/* learn, ads, settings */
+.kpi{gap:var(--s1)}
+.pm-cols{gap:var(--s6);margin-bottom:var(--s4)}
+.pm-cols ul{gap:var(--s2)}
+.ch-results{gap:var(--s3);margin-top:var(--s4)}
+.ch-results div{padding:var(--s3)}
+.adv-nums{gap:var(--s2);margin:var(--s4) 0 var(--s2)}
+.integ{gap:var(--s1) var(--s6)}
+
+/* modals and drawers */
+.mhd{padding:var(--s5) var(--s5) var(--s2) var(--s6)}
+.mbd{padding:var(--s3) var(--s6) var(--s6);gap:var(--s4)}
+.mft{padding:var(--s4) var(--s6);gap:var(--s3)}
+.dr-head{padding:var(--s5) var(--s5) var(--s4) var(--s6);gap:var(--s3)}
+.dr-body{padding:var(--s5) var(--s6);gap:var(--s4)}
+.dr-foot{padding:var(--s4) var(--s6);gap:var(--s3)}
+
+@media (max-width:640px){
+  .top{padding:0 var(--s3) 0 var(--gutter)}
+  .page{padding:var(--s4) var(--gutter) 110px}
+  .home{margin:calc(-1 * var(--s4)) calc(-1 * var(--gutter)) 0}
+  .mhd{padding:var(--s4) var(--s4) var(--s2) var(--s5)}
+  .mbd{padding:var(--s3) var(--s5) var(--s5)}
+  .mft{padding:var(--s3) var(--s5)}
+  .dr-head{padding:var(--s4) var(--s4) var(--s3) var(--s5)}
+  .dr-body{padding:var(--s4) var(--s5)}
+  .dr-foot{padding:var(--s3) var(--s5)}
+  .tbl tr{padding:var(--s3) var(--pad);gap:var(--s3) var(--s4)}
+  /* segments that wrap become a tidy block of rows instead of a stretched pill */
+  .ed-ctl{width:100%}
+  .ed-ctl .seg,.lp-box .seg,.pv-switch{border-radius:var(--r-md);display:flex}
+  .ed-ctl .seg button,.lp-box .seg button,.pv-switch button{border-radius:var(--r-sm);flex:1 1 auto}
+}
+
+/* Know: the four member filters sit in an even 2 x 2 grid rather than wrapping unevenly */
+.know .list-pane>.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-radius:var(--r-md)}
+.know .list-pane>.seg button{border-radius:var(--r-sm);text-align:center}

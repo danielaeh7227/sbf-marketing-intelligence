@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SBF Marketing Intelligence pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<style>
+/* Deck: 1920 x 1080 slides scaled to the window, dark throughout. Live frames run the real prototype, loaded only near the current slide. */
+:root{
+  --navy:#0E2147;--navy-2:#16305F;--navy-3:#091633;--cyan:#00B0D8;--cyan-d:#0091B4;--cyan-l:#7FD8EC;--red:#F03040;
+  --on-dark:#F3F5FA;--on-dark-2:#A9B7D2;--on-dark-3:#6F86B3;--glass:rgba(255,255,255,.05);--glass-line:rgba(255,255,255,.1);
+  --hi:#3DD68C;--mid:#00B0D8;--lo:#F5A23A;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#050B19;overflow:hidden}
+body{font:400 22px/1.5 var(--font);color:var(--on-dark);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p{margin:0}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.s{position:absolute;inset:0;padding:96px 120px 88px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s .5s;overflow:hidden;color:var(--on-dark);
+  background:radial-gradient(120% 90% at 20% 0%,#16336C 0%,var(--navy) 42%,var(--navy-3) 100%)}
+.s.alt{background:radial-gradient(110% 90% at 85% 10%,#173A78 0%,#0F2550 40%,var(--navy-3) 100%)}
+.s.deep{background:radial-gradient(90% 80% at 50% 0%,#132C5E 0%,#0A1938 55%,#060F24 100%)}
+.s.on{opacity:1;visibility:visible;transition:opacity .5s ease;z-index:2}
+.s.out{opacity:1;visibility:visible;z-index:1}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* autoplay steps: each [data-a] enters in order when its slide opens and leaves before the next one */
+.s [data-a]{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.s [data-a="l"]{transform:translateX(-36px)}.s [data-a="r"]{transform:translateX(36px)}.s [data-a="z"]{transform:scale(.94)}.s [data-a="f"]{transform:none}
+.s.on [data-a]{opacity:1;transform:none;transition-delay:calc(var(--d,0) * 130ms + 250ms)}
+.s.out [data-a]{opacity:0;transform:translateY(-18px);transition-duration:.3s;transition-delay:calc(var(--d,0) * 25ms)}
+svg [data-a]{transform-box:fill-box}
+@media (prefers-reduced-motion:reduce){.s [data-a]{transform:none!important;transition:opacity .3s!important}}
+
+/* type */
+.ov{display:flex;align-items:center;gap:14px;font:600 17px/1 var(--font);letter-spacing:.2em;text-transform:uppercase;color:var(--cyan-l)}
+.ov b{color:#5F739C;font-weight:600}
+.ov .pn{color:#fff;background:var(--red);padding:6px 10px;border-radius:8px;letter-spacing:.12em}
+.h{font-weight:600;font-size:64px;line-height:1.06;letter-spacing:-.03em;margin-top:22px;max-width:22ch}
+.h em{font-style:normal;color:var(--cyan)}
+.lede{font-size:27px;line-height:1.45;color:var(--on-dark-2);margin-top:22px;max-width:44ch}
+.note{font-size:15px;color:#61759D;margin-top:auto}
+.row{display:flex;gap:56px;align-items:center}
+.split{display:grid;grid-template-columns:440px 1fr;gap:64px;align-items:center;flex:1;min-height:0}
+.split .h{font-size:46px!important;max-width:none}
+
+/* points: titles only on the problem slides */
+.pts{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:18px}
+.pts li{display:flex;gap:18px;align-items:center;padding:18px 20px;border-radius:18px;background:var(--glass);border:1px solid var(--glass-line)}
+.pts .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(0,176,216,.15);color:var(--cyan-l);font-size:24px;flex:none}
+.pts b{display:block;font-weight:600;font-size:23px;line-height:1.3}
+.pts span:not(.ic){display:block;color:var(--on-dark-2);font-size:18px;line-height:1.4;margin-top:2px}
+
+/* cards */
+.card{background:var(--glass);border:1px solid var(--glass-line);border-radius:22px;padding:30px 30px 28px}
+.card h3{font-size:25px;font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.card h3 .i{color:var(--cyan);font-size:26px}
+.card p{color:var(--on-dark-2);font-size:19px;line-height:1.45;margin-top:10px}
+
+/* live frames */
+.shot{position:relative;margin:0;border-radius:20px;overflow:hidden;background:#0B1428;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px -36px rgba(0,0,0,.7),0 10px 24px -14px rgba(0,0,0,.5)}
+.shot .bar{display:flex;align-items:center;gap:8px;height:42px;padding:0 16px;background:#1A2A4E;font-size:15px;color:#9FB0CE}
+.shot .bar i{width:11px;height:11px;border-radius:50%;background:#34497A}
+.shot .bar span{flex:1;margin-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot .bar button{border:0;background:none;font:600 15px var(--font);color:var(--cyan-l);cursor:pointer;display:flex;align-items:center;gap:6px}
+.shot .live{position:absolute;top:10px;right:92px;z-index:2;font:700 12px var(--font);letter-spacing:.14em;color:#fff;background:rgba(240,48,64,.92);padding:5px 10px;border-radius:999px;display:flex;align-items:center;gap:6px;pointer-events:none}
+.shot .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.shot .vp{position:relative;overflow:hidden;background:#0B1428}
+.shot iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#0B1428}
+.phone{position:relative;width:400px;border-radius:62px;padding:16px;background:#0A0F1C;box-shadow:0 0 0 2px #2A3550,0 50px 90px -40px rgba(0,0,0,.8);flex:none}
+.phone .shot{border-radius:48px;border:0;box-shadow:none}
+.phone .shot .bar,.phone .shot .live{display:none}
+.phone::after{content:"";position:absolute;top:30px;left:50%;width:116px;height:32px;margin-left:-58px;border-radius:20px;background:#000;z-index:3}
+.cap{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:16px;color:#7D90B6}
+
+/* chips and tables */
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;font:600 16px var(--font);background:rgba(0,176,216,.14);color:var(--cyan-l)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:21px}
+.tbl th{text-align:left;font:600 14px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-3);padding:0 18px 14px}
+.tbl td{padding:20px 18px;border-top:1px solid var(--glass-line);vertical-align:top;color:#D7E0F0;line-height:1.4}
+.tbl td:first-child{font-weight:600;color:#fff;white-space:nowrap}
+.tbl td.na{color:#4A5E86}
+.tbl .sera{background:rgba(0,176,216,.1);color:#CFF3FB}
+.tbl th.sera{color:var(--cyan-l);background:rgba(0,176,216,.1);border-radius:12px 12px 0 0;padding-top:12px}
+
+/* deck chrome: hidden while presenting; H shows it */
+body:not(.tools) .chrome,body:not(.tools) .hint,body:not(.tools) .prog{display:none}
+.chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:14px;padding:12px 18px;z-index:10;opacity:0;transition:opacity .3s;pointer-events:none}
+body:hover .chrome,.chrome:focus-within{opacity:1;pointer-events:auto}
+.chrome button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(10,18,40,.7);color:#fff;cursor:pointer;display:grid;place-items:center;font-size:20px;backdrop-filter:blur(10px)}
+.chrome button:hover{background:rgba(0,176,216,.5)}
+.chrome .ct{font:600 14px var(--font);color:#C9D4E8;background:rgba(10,18,40,.7);padding:9px 14px;border-radius:999px;backdrop-filter:blur(10px)}
+.chrome .sp{flex:1}
+.prog{position:fixed;left:0;top:0;height:3px;background:var(--cyan);z-index:10;transition:width .4s ease}
+.hint{position:fixed;right:18px;top:14px;z-index:10;font:500 13px var(--font);color:#7D90B6;opacity:0;transition:opacity .3s}
+body:hover .hint{opacity:1}
+
+/* cover */
+.cover{padding:0}
+.cover .bg{position:absolute;inset:0}
+.cover .bg .shot{position:absolute;inset:0;border-radius:0;border:0;box-shadow:none}
+.cover .bg .shot .bar,.cover .bg .shot .live{display:none}
+.cover .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,22,51,.94) 0%,rgba(9,22,51,.82) 38%,rgba(9,22,51,0) 62%);pointer-events:none}
+.cover .txt{position:relative;z-index:2;padding:110px 120px;height:100%;display:flex;flex-direction:column;max-width:1000px;pointer-events:none}
+.cover .txt *{pointer-events:auto}
+.logo{height:46px;width:auto;display:block;align-self:flex-start}
+.cover h1{font-size:104px;font-weight:600;letter-spacing:-.04em;line-height:1;margin-top:auto}
+.cover h1 span{display:block;font-weight:300;color:#9FD9EA}
+.tag{margin-top:34px;font-size:30px;color:var(--on-dark-2);max-width:30ch;line-height:1.4}
+.tag b{color:#fff;font-weight:600}
+.motto{margin-top:46px;display:flex;align-items:center;gap:18px;font:600 19px var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-l)}
+.motto::before{content:"";width:56px;height:2px;background:var(--red)}
+.by{margin-top:auto;padding-top:40px;font-size:18px;color:#7D90B6}
+
+/* background */
+.big{font-size:150px;font-weight:600;letter-spacing:-.05em;line-height:.95;color:var(--cyan)}
+.verbs{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+.verb{border-radius:24px;padding:34px 36px;background:var(--glass);border:1px solid var(--glass-line)}
+.verb h3{font-size:44px;font-weight:600;letter-spacing:-.02em}.verb h3 em{font-style:normal;color:var(--cyan)}
+.verb p{margin-top:12px;color:var(--on-dark-2);font-size:22px;line-height:1.45}
+.verb ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px;font-size:20px;color:#D7E0F0}
+.verb li{display:flex;gap:12px}.verb li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-top:12px;flex:none}
+
+/* problems */
+.probs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;flex:1;min-height:0;align-content:center}
+.prob{background:var(--glass);border:1px solid var(--glass-line);border-radius:24px;padding:36px 32px 34px;position:relative;overflow:hidden}
+.prob::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),rgba(240,48,64,0))}
+.prob .n{font:600 84px/1 var(--font);letter-spacing:-.04em;color:var(--red)}
+.prob h3{font-size:31px;font-weight:600;margin-top:26px;letter-spacing:-.015em;line-height:1.2}
+.prob p{font-size:20px;color:var(--on-dark-2);margin-top:14px;line-height:1.45}
+
+/* solution loop */
+.map{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:14px}
+.map li{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;padding:16px 22px;border-radius:18px;background:var(--glass);border:1px solid var(--glass-line)}
+.map .pn{font:700 18px var(--font);color:#fff;background:var(--red);border-radius:10px;height:40px;display:grid;place-items:center}
+.map b{font-size:22px;font-weight:600}
+.map .to{font:600 20px var(--font);color:var(--cyan-l);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.map .to::before{content:"\2192";color:#5F739C}
+.loop{position:relative;width:760px;height:760px;flex:none}
+.loop svg{position:absolute;inset:0}
+.node{position:absolute;width:250px;padding:22px 24px;border-radius:22px;background:#16305F;border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 40px -26px rgba(0,0,0,.7)}
+.node b{display:flex;align-items:center;gap:10px;font-size:26px;letter-spacing:-.01em}.node b .i{color:var(--cyan)}
+.node span{display:block;font-size:17px;color:var(--on-dark-2);margin-top:6px;line-height:1.4}
+.bd{position:absolute;top:-14px;right:18px;font:700 14px var(--font);letter-spacing:.06em;color:#fff;background:var(--red);padding:5px 10px;border-radius:8px;box-shadow:0 6px 16px -6px rgba(240,48,64,.7)}
+.node.mid{top:50%;transform:translateY(-50%)}
+.core{position:absolute;left:50%;top:50%;width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 35% 30%,#0BB6DC,#0379A0);color:#fff;box-shadow:0 0 0 14px rgba(0,176,216,.14),0 0 0 30px rgba(0,176,216,.06),0 0 80px rgba(0,176,216,.35)}
+.core b{font-size:32px;display:block}.core span{font-size:17px;color:#E2F7FC;display:block;margin-top:6px;padding:0 26px}
+.core .bd{top:6px;right:50%;margin-right:-22px}
+.spin{animation:spin 60s linear infinite;transform-origin:380px 380px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* user flow */
+.flow{flex:1;min-height:0;margin-top:26px}
+.flow svg{width:100%;height:100%}
+
+/* templates */
+.tpl{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+.tpl .card{padding:16px 20px;border-radius:16px;display:flex;align-items:center;gap:14px}
+.tpl .card h3{font-size:20px;flex:1}
+.tpl .when{font:600 12px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--cyan-l);background:rgba(0,176,216,.14);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.grp{font:700 14px var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-3);margin-top:24px;grid-column:1/-1;display:flex;align-items:center;gap:10px}
+.grp:first-child{margin-top:0}
+.grp .i{color:var(--cyan);font-size:18px}
+
+/* anywhere */
+.any{display:flex;align-items:center;justify-content:center;gap:72px;flex:1;min-height:0;margin-top:16px}
+.feats{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.feat{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-line);font:600 20px var(--font)}
+.feat .i{color:var(--cyan);font-size:22px}
+.sera-tag{display:inline-flex;align-items:center;gap:10px;color:#fff}
+.sera-tag i{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#9AF0FF,var(--cyan));box-shadow:0 0 18px var(--cyan)}
+
+/* rollout and portal */
+.road{display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:22px;row-gap:18px;margin-top:34px;flex:1;min-height:0;grid-template-rows:auto auto 1fr}
+.phase{border-radius:22px;padding:26px 28px;background:var(--glass);border:1px solid var(--glass-line);position:relative}
+.phase .k{display:block;line-height:1.3;font:700 14px/1.3 var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-l)}
+.phase h3{font-size:32px;margin-top:6px;letter-spacing:-.02em}
+.phase ul{margin:14px 0 0;padding:0 0 0 22px;color:#D7E0F0;font-size:19px;display:grid;gap:6px;line-height:1.35}
+.phase.now{grid-row:1/4;background:linear-gradient(160deg,#0A9FC4,#05627F);border-color:rgba(127,216,236,.5);display:flex;flex-direction:column}
+.phase.now .k{color:#E2F7FC}.phase.now ul{color:#F3FBFE}
+.phase.now .int{margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.25);font-size:16px;color:#E2F7FC;line-height:1.5}
+.phase.now .int b{display:flex;align-items:center;gap:8px;font:700 13px var(--font);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.db{grid-column:2/4;display:flex;align-items:center;justify-content:center;gap:18px;padding:22px;border-radius:20px;position:relative;
+  background:linear-gradient(90deg,rgba(0,176,216,.08),rgba(0,176,216,.28),rgba(0,176,216,.08));border:1.5px solid var(--cyan);box-shadow:0 0 50px -10px rgba(0,176,216,.55);font:600 30px var(--font);letter-spacing:-.01em}
+.db .i{font-size:36px;color:var(--cyan-l)}
+.db small{font:500 18px var(--font);color:var(--on-dark-2);letter-spacing:0}
+.portal{grid-column:2/4;border-radius:22px;padding:22px 26px;border:1px dashed rgba(127,216,236,.45);background:rgba(255,255,255,.03)}
+.portal h4{font:700 14px var(--font);letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-l);display:flex;justify-content:space-between}
+.portal h4 span{color:var(--on-dark-3)}
+.mods{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}
+.mod{padding:14px 16px;border-radius:14px;background:rgba(0,176,216,.1);border:1px solid rgba(0,176,216,.35);font:600 18px/1.25 var(--font)}
+.mod .i{display:block;font-size:24px;color:var(--cyan);margin-bottom:8px}
+.next{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.next .chip{font-size:15px;padding:6px 14px;background:transparent;border:1px dashed rgba(127,216,236,.4)}
+.next .lb{font:700 13px var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3);margin-right:4px}
+
+/* close */
+.steps{list-style:none;padding:0;margin:48px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.steps li{border-radius:22px;padding:30px;background:var(--glass);border:1px solid var(--glass-line)}
+.steps .n{font:600 56px/1 var(--font);color:var(--cyan);letter-spacing:-.03em}
+.steps b{display:block;font-size:26px;margin-top:16px}.steps span{display:block;color:var(--on-dark-2);font-size:19px;margin-top:8px;line-height:1.45}
+
+/* appendix */
+.apx{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;max-width:1200px}
+.apx .card{display:flex;gap:22px;align-items:center}
+.apx .card .k{font:600 64px/1 var(--font);color:var(--cyan);letter-spacing:-.03em}
+.bands{display:grid;gap:12px;margin-top:36px}
+.band{border-radius:16px;padding:16px 20px;background:var(--glass);border:1px solid var(--glass-line);display:flex;align-items:center;gap:14px;font:600 21px var(--font)}
+.band i{width:16px;height:16px;border-radius:50%;flex:none}
+.band span{margin-left:auto;font:500 17px var(--font);color:var(--on-dark-2)}
+
+/* speaker notes: N shows them over the slide, P opens a speaker window */
+.notes{position:fixed;left:50%;bottom:72px;transform:translateX(-50%);width:min(860px,calc(100vw - 32px));max-height:42vh;overflow:auto;z-index:11;padding:20px 24px;border-radius:18px;background:rgba(8,15,34,.92);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);color:#E6ECF7;font:400 16px/1.55 var(--font);display:none;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.notes.on{display:block}
+.notes h5{margin:0 0 10px;font:600 12px var(--font);letter-spacing:.14em;text-transform:uppercase;color:#7FD8EC;display:flex;justify-content:space-between}
+.notes p{margin:0 0 8px}.notes .do{margin-top:12px;color:#F5C27A;font-size:14px}
+@media print{html,body{overflow:visible;background:#000}.chrome,.prog,.hint{display:none}.stage{position:static;transform:none!important}.s{position:relative;opacity:1;visibility:visible;width:1920px;height:1080px;page-break-after:always}.s [data-a]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="prog" id="prog"></div>
+<div class="hint">Arrow keys or click the edges to move · N notes · P speaker window · F full screen · H hide these controls · click outside a live frame to steer the deck</div>
+<main class="stage" id="stage">
+
+<!-- 01 cover: the live sign-in screen fills the slide -->
+<section class="s cover" data-t="Cover">
+  <div class="bg"><figure class="shot" data-app="#/overview" data-cfg="bare" data-w="1920" data-h="1080" data-fill></figure></div>
+  <div class="veil"></div>
+  <div class="txt">
+    <img class="logo" src="SBF_LOGO_WHITE" alt="SBF" data-a="f">
+    <h1 data-a>Marketing<span>Intelligence</span></h1>
+    <p class="tag" data-a>One streamlined workflow to reach every member with the right message.</p>
+    <p class="motto" data-a>Mobilising business, magnifying opportunities</p>
+    <p class="by" data-a="f">Studio20 for the Singapore Business Federation · November 2026</p>
+  </div>
+</section>
+
+<!-- 02 background -->
+<section class="s" data-t="Background">
+  <p class="ov" data-a="f"><b>01</b>Background</p>
+  <div class="row" style="align-items:flex-start;margin-top:10px">
+    <h2 class="h" style="flex:1" data-a>SBF's promise is to <em>mobilise business</em> and <em>magnify opportunities</em>.</h2>
+    <div style="width:560px;padding-top:30px;margin-left:auto;text-align:right" data-a="r">
+      <div class="big tnum">34,160</div>
+      <p style="font-size:24px;color:#D7E0F0;margin-top:14px">member companies across every sector</p>
+      <p style="font-size:19px;color:var(--on-dark-2);margin-top:10px">736 joined by choice and expect to see the value.</p>
+    </div>
+  </div>
+  <div class="verbs" style="margin-top:auto">
+    <div class="verb" data-a><h3><em>Mobilise</em> Business</h3><p>Bring the right members into the right rooms.</p>
+      <ul><li>Market briefings, missions and dialogues (MICE)</li><li>Networks such as SG-WEN and YBLN, and member nights</li><li>Policy consultations such as the Budget survey</li></ul></div>
+    <div class="verb" data-a><h3><em>Magnify</em> Opportunities</h3><p>Make every member's next opportunity visible to them.</p>
+      <ul><li>BizSpoke, the member newsletter</li><li>Grants, accreditation and renewals that matter to their business</li><li>Member stories on LinkedIn and at events</li></ul></div>
+  </div>
+  <p class="note" style="margin-top:20px" data-a="f">Member counts from SBF, December 2025.</p>
+</section>
+
+<!-- 03 problems -->
+<section class="s alt" data-t="The problem">
+  <p class="ov" data-a="f"><b>02</b>The Problem</p>
+  <h2 class="h" style="max-width:none" data-a>Four Gaps Between SBF and Its Members</h2>
+  <div class="probs">
+    <div class="prob" data-a><span class="n">01</span><h3>No Single View of the Member</h3><p>Forms and event data sit outside the CRM and get copied into Excel by hand.</p></div>
+    <div class="prob" data-a><span class="n">02</span><h3>Events Compete and Get Buried</h3><p>Teams chase the same channels and homepage slots, with no shared calendar.</p></div>
+    <div class="prob" data-a><span class="n">03</span><h3>One Message for Everyone</h3><p>Members want relevance by industry and role, yet most get the same broad message.</p></div>
+    <div class="prob" data-a><span class="n">04</span><h3>No Way to See What Worked</h3><p>No click, lead or attendance results, and nothing flows back to the member record.</p></div>
+  </div>
+  <p class="note" style="margin-top:26px" data-a="f">From the working-level interviews across 16 departments and the member interviews.</p>
+</section>
+
+<!-- 04 solution: the four problems mapped onto the loop -->
+<section class="s" data-t="The solution">
+  <p class="ov" data-a="f"><b>03</b>The Solution</p>
+  <div class="row" style="flex:1;min-height:0;gap:80px">
+    <div style="flex:1">
+      <h2 class="h" data-a>One Workflow, <em>Five Steps</em>, Member at the Centre</h2>
+      <p class="lede" data-a>Sera, the assistant, drafts and recommends. People decide.</p>
+      <ul class="map">
+        <li data-a="l"><span class="pn">01</span><b>No Single View of the Member</b><span class="to">Know</span></li>
+        <li data-a="l"><span class="pn">02</span><b>Events Compete and Get Buried</b><span class="to">Plan</span></li>
+        <li data-a="l"><span class="pn">03</span><b>One Message for Everyone</b><span class="to">Create &amp; Approve</span></li>
+        <li data-a="l"><span class="pn">04</span><b>No Way to See What Worked</b><span class="to">Learn</span></li>
+      </ul>
+    </div>
+    <div class="loop" data-a="z">
+      <svg viewBox="0 0 760 760"><g class="spin"><circle cx="380" cy="380" r="262" fill="none" stroke="#00B0D8" stroke-opacity=".45" stroke-width="2" stroke-dasharray="6 10"/></g></svg>
+      <div class="core"><span class="bd">01</span><div><b>Know</b><span>One view of every member</span></div></div>
+      <div class="node" style="left:255px;top:96px"><span class="bd">02</span><b><svg class="i" data-i="cal"></svg>Plan</b><span>One shared calendar</span></div>
+      <div class="node mid" style="right:0"><span class="bd">03</span><b><svg class="i" data-i="pen"></svg>Create</b><span>A version per member group</span></div>
+      <div class="node" style="left:255px;bottom:96px"><span class="bd">03</span><b><svg class="i" data-i="check"></svg>Approve</b><span>Fast-tracked sign-off</span></div>
+      <div class="node mid" style="left:0"><span class="bd">04</span><b><svg class="i" data-i="chart"></svg>Learn</b><span>Results and follow-ups</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 user flow: four stakeholders, four lanes, Sera highlighted -->
+<section class="s deep" data-t="User flow">
+  <p class="ov" data-a="f"><b>04</b>User Flow</p>
+  <h2 class="h" style="max-width:none;font-size:56px" data-a>From Entry to Insight: Who Does What, and When</h2>
+  <div class="flow">
+    <svg viewBox="0 0 1680 700" font-family="Inter,sans-serif">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#7FD8EC"/></marker>
+        <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#3DD68C"/></marker>
+        <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#F5A23A"/></marker>
+        <linearGradient id="seraLane" x1="0" x2="1"><stop offset="0" stop-color="#00B0D8" stop-opacity=".34"/><stop offset="1" stop-color="#00B0D8" stop-opacity=".1"/></linearGradient>
+        <filter id="glow" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+      </defs>
+      <!-- lanes -->
+      <g data-a="f">
+        <rect x="0" y="10" width="1680" height="160" rx="18" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
+        <rect x="0" y="182" width="1680" height="160" rx="18" fill="#00B0D8" opacity=".25" filter="url(#glow)"/>
+        <rect x="0" y="182" width="1680" height="160" rx="18" fill="url(#seraLane)" stroke="#00B0D8" stroke-width="2.5"/>
+        <rect x="0" y="354" width="1680" height="160" rx="18" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)"/>
+        <rect x="0" y="526" width="1680" height="160" rx="18" fill="rgba(245,162,58,.05)" stroke="rgba(245,162,58,.25)"/>
+        <g font-size="17" font-weight="700" letter-spacing="2" fill="#A9B7D2">
+          <text x="28" y="96">MEMBERSHIP</text>
+          <text x="28" y="430">MARKETING &amp;</text><text x="28" y="454">COMMUNICATIONS</text>
+          <text x="28" y="612" fill="#F5C27A">MEMBERS</text>
+        </g>
+        <circle cx="40" cy="250" r="9" fill="#7FF0FF"/><circle cx="40" cy="250" r="16" fill="none" stroke="#00B0D8" stroke-opacity=".6" stroke-width="2"/>
+        <text x="64" y="258" font-size="26" font-weight="700" fill="#fff" letter-spacing="1">SERA (AI)</text>
+        <text x="28" y="292" font-size="15" fill="#CFF3FB">Checks, drafts, sends,</text><text x="28" y="312" font-size="15" fill="#CFF3FB">learns</text>
+      </g>
+      <g font-size="18" fill="#F3F5FA" font-weight="600">
+        <g data-a><rect x="270" y="40" width="200" height="100" rx="14" fill="#1E3A70" stroke="rgba(255,255,255,.18)"/><text x="290" y="78" fill="#7FD8EC" font-size="14" font-weight="700" letter-spacing="1.5">1 · PLAN</text><text x="290" y="104">Add entry, single</text><text x="290" y="126">or bulk CSV</text></g>
+        <g data-a><rect x="270" y="212" width="200" height="100" rx="14" fill="#00B0D8"/><text x="290" y="250" fill="#0E2147" font-size="14" font-weight="700" letter-spacing="1.5">CHECKS</text><text x="290" y="276" fill="#06172F">Clashes, fatigue,</text><text x="290" y="298" fill="#06172F">eligibility</text></g>
+        <g data-a><rect x="500" y="212" width="210" height="100" rx="14" fill="#00B0D8"/><text x="520" y="250" fill="#0E2147" font-size="14" font-weight="700" letter-spacing="1.5">2 · CREATE</text><text x="520" y="276" fill="#06172F">Channels, copy,</text><text x="520" y="298" fill="#06172F">landing pages</text></g>
+        <g data-a><rect x="750" y="40" width="200" height="100" rx="14" fill="#1E3A70" stroke="rgba(255,255,255,.18)"/><text x="770" y="78" fill="#7FD8EC" font-size="14" font-weight="700" letter-spacing="1.5">3 · AUDIENCE</text><text x="770" y="104">Approve who</text><text x="770" y="126">receives it</text></g>
+        <g data-a><rect x="750" y="384" width="200" height="100" rx="14" fill="#1E3A70" stroke="rgba(255,255,255,.18)"/><text x="770" y="422" fill="#7FD8EC" font-size="14" font-weight="700" letter-spacing="1.5">4 · CREATIVE</text><text x="770" y="448">Approve tone,</text><text x="770" y="470">visuals, channel</text></g>
+        <g data-a><rect x="990" y="212" width="200" height="100" rx="14" fill="#00B0D8"/><text x="1010" y="250" fill="#0E2147" font-size="14" font-weight="700" letter-spacing="1.5">5 · SEND</text><text x="1010" y="276" fill="#06172F">Schedules and</text><text x="1010" y="298" fill="#06172F">personalises</text></g>
+        <g data-a><rect x="990" y="556" width="230" height="100" rx="14" fill="rgba(245,162,58,.14)" stroke="#F5A23A"/><text x="1010" y="594" fill="#F5C27A" font-size="14" font-weight="700" letter-spacing="1.5">RECEIVE AND RESPOND</text><text x="1010" y="620">Email, WhatsApp,</text><text x="1010" y="642">LinkedIn · RSVP</text></g>
+        <g data-a><rect x="1240" y="212" width="200" height="100" rx="14" fill="#00B0D8"/><text x="1260" y="250" fill="#0E2147" font-size="14" font-weight="700" letter-spacing="1.5">6 · LEARN</text><text x="1260" y="276" fill="#06172F">Scores, funnel,</text><text x="1260" y="298" fill="#06172F">post-mortem</text></g>
+        <g data-a><rect x="1240" y="384" width="200" height="100" rx="14" fill="#1E3A70" stroke="rgba(255,255,255,.18)"/><text x="1260" y="422" fill="#7FD8EC" font-size="14" font-weight="700" letter-spacing="1.5">REVIEW</text><text x="1260" y="448">Post-mortem and</text><text x="1260" y="470">channel load</text></g>
+        <g data-a><rect x="1470" y="40" width="190" height="100" rx="14" fill="#1E3A70" stroke="rgba(255,255,255,.18)"/><text x="1490" y="78" fill="#7FD8EC" font-size="14" font-weight="700" letter-spacing="1.5">ACT</text><text x="1490" y="104">Next best</text><text x="1490" y="126">actions</text></g>
+        <g data-a><rect x="1470" y="556" width="190" height="100" rx="14" fill="rgba(245,162,58,.14)" stroke="#F5A23A"/><text x="1490" y="594" fill="#F5C27A" font-size="14" font-weight="700" letter-spacing="1.5">FOLLOW-UP</text><text x="1490" y="620">Recap, call or</text><text x="1490" y="642">next invite</text></g>
+      </g>
+      <g fill="none" stroke="#7FD8EC" stroke-width="2.5" data-a="f">
+        <path d="M370 140v66" marker-end="url(#ar)"/>
+        <path d="M470 262h24" marker-end="url(#ar)"/>
+        <path d="M710 240 Q745 240 772 146" marker-end="url(#ar)"/>
+        <path d="M850 140v238" marker-end="url(#ar)"/>
+        <path d="M950 434 Q980 434 1020 318" marker-end="url(#ar)"/>
+        <path d="M1090 312v238" marker-end="url(#ar)"/>
+        <path d="M1220 600 Q1290 600 1300 318" marker-end="url(#ar)"/>
+        <path d="M1340 312v66" marker-end="url(#ar)"/>
+        <path d="M1440 236 Q1505 236 1530 146" marker-end="url(#ar)"/>
+        <path d="M1565 40 C1565 -6 380 -6 376 34" stroke-dasharray="7 8" marker-end="url(#ar)"/>
+      </g>
+      <g fill="none" stroke-width="2.5" stroke-dasharray="7 7" data-a="f">
+        <path d="M710 292 C820 336 900 336 984 292" stroke="#3DD68C" marker-end="url(#ag)"/>
+        <path d="M1440 290 C1540 320 1560 420 1562 550" stroke="#F5A23A" marker-end="url(#ao)"/>
+      </g>
+      <g font-size="15" fill="#A9B7D2" data-a="f">
+        <text x="840" y="350" text-anchor="end" fill="#3DD68C" font-weight="600">Fast track: approved template, no changes</text>
+        <text x="830" y="26">Feeds the next entry and the member's profile</text>
+        <text x="1060" y="530">Opens, RSVPs and attendance flow back</text>
+        <text x="1462" y="505" fill="#F5C27A" font-weight="600">Follow-up</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- 06 problem 01: know -->
+<section class="s alt" data-t="01 · Know">
+  <p class="ov" data-a="f"><span class="pn">01</span>No Single View of the Member</p>
+  <div class="split" style="margin-top:20px">
+    <div>
+      <h2 class="h" style="font-size:54px" data-a>Know: One Profile, <em>Every Signal</em></h2>
+      <ul class="pts">
+        <li data-a="l"><span class="ic"><svg class="i" data-i="layers"></svg></span><b>Six Sources, One Profile</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="activity"></svg></span><b>Activity Score at a Glance</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="spark"></svg></span><b>Next Best Actions, With Reasons</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="shield"></svg></span><b>Consent and Renewal in View</b></li>
+      </ul>
+    </div>
+    <div data-a="r"><figure class="shot" data-app="#/know/kopilane" data-cfg="as=cheryl" data-w="1440" data-h="900" data-label="Know · Kopi Lane F&amp;B"></figure>
+      <p class="cap"><span>Live prototype</span><span>Sample data</span></p></div>
+  </div>
+</section>
+
+<!-- 07 problem 02: plan -->
+<section class="s" data-t="02 · Plan">
+  <p class="ov" data-a="f"><span class="pn">02</span>Events Compete and Get Buried</p>
+  <div class="split" style="margin-top:20px">
+    <div>
+      <h2 class="h" style="font-size:54px" data-a>Plan: <em>One Calendar</em> for Every Department</h2>
+      <ul class="pts">
+        <li data-a="l"><span class="ic"><svg class="i" data-i="cal"></svg></span><b>Shared Marketing Calendar</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="alert"></svg></span><b>Clash and Fatigue Warnings</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="users"></svg></span><b>Custom Audience per Entry</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="upload"></svg></span><b>Single or Bulk Import</b></li>
+      </ul>
+    </div>
+    <div data-a="r"><figure class="shot" data-app="#/plan" data-cfg="as=cheryl" data-w="1440" data-h="900" data-label="Plan · November 2026"></figure>
+      <p class="cap"><span>Live prototype</span><span>Sample data</span></p></div>
+  </div>
+</section>
+
+<!-- 08 problem 03: create -->
+<section class="s alt" data-t="03 · Create">
+  <p class="ov" data-a="f"><span class="pn">03</span>One Message for Everyone</p>
+  <div class="split" style="margin-top:20px">
+    <div>
+      <h2 class="h" style="font-size:54px" data-a>Create: The <em>Right Message</em> for Each Group</h2>
+      <ul class="pts">
+        <li data-a="l"><span class="ic"><svg class="i" data-i="spark"></svg></span><b>Sera Suggests the Channels</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="users"></svg></span><b>A Version per Member Group</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="link"></svg></span><b>A Landing Page for Every Message</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="shield"></svg></span><b>Brand and Consent Checks</b></li>
+      </ul>
+    </div>
+    <div data-a="r"><figure class="shot" data-app="#/create/e1" data-cfg="as=carolina" data-w="1440" data-h="900" data-label="Create · Go Global: Indonesia market briefing"></figure>
+      <p class="cap"><span>Live prototype</span><span>Carolina Ng, Marketing &amp; Communications</span></p></div>
+  </div>
+</section>
+
+<!-- 09 problem 03: templates -->
+<section class="s" data-t="03 · Templates">
+  <p class="ov" data-a="f"><span class="pn">03</span>One Message for Everyone</p>
+  <div class="row" style="align-items:flex-start;gap:48px;flex:1;min-height:0">
+    <div style="flex:1;min-width:0">
+      <h2 class="h" style="font-size:54px;max-width:none" data-a>Templates: <em>Locked to the Brand</em> Across Every Channel</h2>
+      <div class="tpl">
+        <p class="grp" data-a="f"><svg class="i" data-i="mail"></svg>Email</p>
+        <div class="card" data-a><h3>BizSpoke Newsletter</h3><span class="when">Next issue</span></div>
+        <div class="card" data-a><h3>Upcoming Events (Monthly)</h3><span class="when">Monthly</span></div>
+        <div class="card" data-a><h3>Guest Invitation</h3><span class="when">3 weeks before</span></div>
+        <div class="card" data-a><h3>VIP Invitation</h3><span class="when">3 weeks before</span></div>
+        <div class="card" data-a><h3>Welcome Letter</h3><span class="when">On joining</span></div>
+        <div class="card" data-a><h3>Event Recap</h3><span class="when">2 days after</span></div>
+        <p class="grp" data-a="f"><svg class="i" data-i="linkedin"></svg>LinkedIn<span style="width:24px"></span><svg class="i" data-i="chat"></svg>WhatsApp</p>
+        <div class="card" data-a><h3>LinkedIn Post</h3><span class="when">2 weeks before</span></div>
+        <div class="card" data-a><h3>WhatsApp Message</h3><span class="when">3 days before</span></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:22px;flex:none" data-a="r">
+      <div style="width:400px"><figure class="shot" data-file="sbf-edm-go-global.html" data-w="760" data-h="1400" data-label="Guest Invitation"></figure><p class="cap"><span>Guest Invitation</span><span>Scroll inside</span></p></div>
+      <div style="width:400px"><figure class="shot" data-file="sbf-bizspoke-newsletter.html" data-w="760" data-h="1400" data-label="BizSpoke Newsletter"></figure><p class="cap"><span>BizSpoke Newsletter</span><span>Scroll inside</span></p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 11 problem 04: learn -->
+<section class="s alt" data-t="04 · Learn">
+  <p class="ov" data-a="f"><span class="pn">04</span>No Way to See What Worked</p>
+  <div class="split" style="margin-top:20px">
+    <div>
+      <h2 class="h" style="font-size:54px" data-a>Learn: Every Send <em>Teaches the Next</em></h2>
+      <ul class="pts">
+        <li data-a="l"><span class="ic"><svg class="i" data-i="funnel"></svg></span><b>Funnel per Campaign</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="chart"></svg></span><b>Channels and Groups Compared</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="spark"></svg></span><b>Sera's Post-Mortem</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="refresh"></svg></span><b>Member Follow-Up in One Click</b></li>
+      </ul>
+    </div>
+    <div data-a="r"><figure class="shot" data-app="#/learn/p1" data-cfg="as=cheryl" data-w="1440" data-h="900" data-label="Learn · Campaign results"></figure>
+      <p class="cap"><span>Live prototype</span><span>Sample results</span></p></div>
+  </div>
+</section>
+
+<!-- 12 work anywhere -->
+<section class="s deep" data-t="Work anywhere">
+  <p class="ov" data-a="f"><b>05</b>Work Anywhere</p>
+  <h2 class="h" style="max-width:none;font-size:58px" data-a>Work Anywhere, Anytime, <em>Without Boundaries</em></h2>
+  <div class="feats">
+    <span class="feat" data-a><span class="sera-tag"><i></i>Ask SeraAI in Plain Words</span></span>
+    <span class="feat" data-a><svg class="i" data-i="check"></svg>Approve on the Move</span>
+    <span class="feat" data-a><svg class="i" data-i="globe"></svg>Same Home on Every Screen</span>
+  </div>
+  <div class="any">
+    <div style="width:1000px" data-a="l"><figure class="shot" data-app="#/overview" data-cfg="as=cheryl&amp;morph" data-w="1440" data-h="900" data-label="Home · Desktop"></figure>
+      <p class="cap"><span>Desktop</span><span>Cheryl Kong, Membership</span></p></div>
+    <div class="phone" style="width:330px" data-a="r"><figure class="shot" data-app="#/overview" data-cfg="as=cheryl" data-w="390" data-h="844" data-label="Home · Mobile"></figure></div>
+  </div>
+</section>
+
+<!-- 13 roles -->
+<section class="s alt" data-t="Roles">
+  <p class="ov" data-a="f"><b>06</b>Roles</p>
+  <h2 class="h" style="max-width:none" data-a>Clear Steps, Clear Owners</h2>
+  <table class="tbl" style="margin-top:40px">
+    <thead data-a="f"><tr><th>Step</th><th>Membership</th><th class="sera">Sera (AI)</th><th>Marketing &amp; Communications</th><th>Other Departments</th></tr></thead>
+    <tbody>
+      <tr data-a><td>1 · Plan</td><td>Adds entries and the audience</td><td class="sera">Flags clashes and send fatigue</td><td>Sees the whole calendar</td><td>Add entries</td></tr>
+      <tr data-a><td>2 · Create</td><td>Sets the goal</td><td class="sera">Drafts channels, copy and landing pages</td><td>Edits copy, tone and visuals</td><td class="na">—</td></tr>
+      <tr data-a><td>3 · Audience</td><td>Approves who receives it</td><td class="sera">Recommends groups, checks consent</td><td class="na">—</td><td>Propose an audience</td></tr>
+      <tr data-a><td>4 · Creative</td><td class="na">—</td><td class="sera">Offers alternative copy</td><td>Approves, or fast-tracks routine sends</td><td class="na">—</td></tr>
+      <tr data-a><td>5 · Send</td><td class="na">—</td><td class="sera">Personalises each copy</td><td>Schedules</td><td class="na">—</td></tr>
+      <tr data-a><td>6 · Learn</td><td>Follows up with members</td><td class="sera">Scores activity, writes post-mortems</td><td>Reviews results</td><td>See results</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 14 rollout, next steps and the member portal -->
+<section class="s" data-t="Rollout &amp; next steps">
+  <p class="ov" data-a="f"><b>07</b>Rollout &amp; Next Steps</p>
+  <h2 class="h" style="max-width:none;font-size:54px" data-a>Ship the Workflow First. Its Data Builds the <em>Member Portal</em>.</h2>
+  <div class="road">
+    <div class="phase now" data-a="l"><span class="k">Phase 1 · Engage · Now</span><h3>Marketing Intelligence</h3>
+      <ul><li>Shared calendar, single and bulk</li><li>AI channel drafts, templates and landing pages</li><li>Fast-tracked sign-off</li><li>Activity score and post-mortems</li><li>Basic single member view</li></ul>
+      <div class="int"><b><svg class="i" data-i="link"></svg>Integrations</b>Nexus CRM · eDM platform · members and events portals · Zoho or Microsoft Forms · WhatsApp Business API · LinkedIn. PDPA consent per channel and an audit log.</div></div>
+    <div class="phase" data-a><span class="k">Phase 2 · Understand</span><h3>Member Journey</h3><ul><li>Full single view with outside signals</li><li>Renewal and billing risk</li><li>Member-to-member matching</li></ul></div>
+    <div class="phase" data-a><span class="k">Phase 3 · Anticipate</span><h3>Forecasts</h3><ul><li>Which members may lapse</li><li>Which events will fill</li><li>Recommendations by sector</li></ul></div>
+    <div class="db" data-a="z"><svg class="i" data-i="db"></svg><div>One Centralized Member Database <small>Every module reads and writes the same record</small></div></div>
+    <div class="portal" data-a>
+      <h4>Member Portal Modules <span>Phase 2 &amp; 3</span></h4>
+      <div class="mods">
+        <div class="mod"><svg class="i" data-i="idcard"></svg>Registration and Onboarding</div>
+        <div class="mod"><svg class="i" data-i="receipt"></svg>Billing</div>
+        <div class="mod"><svg class="i" data-i="coin"></svg>Payment Tracking</div>
+        <div class="mod"><svg class="i" data-i="users"></svg>Profiling</div>
+        <div class="mod"><svg class="i" data-i="activity"></svg>Activities</div>
+      </div>
+      <div class="next"><span class="lb">Upcoming</span><span class="chip">Member Matching</span><span class="chip">Networks and Committees</span><span class="chip">Benefits and Offers</span><span class="chip">Surveys</span><span class="chip">Member App</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- live prototype -->
+<section class="s deep" data-t="Live prototype">
+  <div class="split" style="grid-template-columns:330px 1fr;gap:56px">
+    <div>
+      <p class="ov" data-a="f"><b>08</b>Live Prototype</p>
+      <h2 class="h" style="margin-top:22px" data-a>See Marketing Intelligence <em>Live</em></h2>
+      <p class="lede" style="font-size:22px" data-a>Click anywhere inside to use it. Every screen in this deck is the same working prototype.</p>
+    </div>
+    <div data-a="z"><figure class="shot" data-app="#/overview" data-cfg="as=cheryl&amp;morph" data-w="1440" data-h="900" data-label="Marketing Intelligence · Live prototype"></figure></div>
+  </div>
+</section>
+
+<!-- 16 appendices -->
+<section class="s alt" data-t="Appendices">
+  <p class="ov" data-a="f">Appendices</p>
+  <h2 class="h" data-a>For Reference</h2>
+  <div class="apx">
+    <div class="card" data-a><span class="k">A</span><div><h3>Approve</h3><p>Two sign-offs, fast-tracked.</p></div></div>
+    <div class="card" data-a><span class="k">B</span><div><h3>Getting Started</h3><p>One quarter, two teams.</p></div></div>
+    <div class="card" data-a><span class="k">C</span><div><h3>Activity Score</h3><p>How the score is built and tuned.</p></div></div>
+    <div class="card" data-a><span class="k">D</span><div><h3>Why Native</h3><p>What each Portal module gives SBF.</p></div></div>
+  </div>
+</section>
+
+<!-- appendix a: approve -->
+<section class="s" data-t="A · Approve">
+  <p class="ov" data-a="f"><b>A</b>Appendix · Approve</p>
+  <div class="split" style="margin-top:20px">
+    <div>
+      <h2 class="h" style="font-size:54px" data-a>Approve: <em>Two Sign-Offs</em>, Fast-Tracked</h2>
+      <ul class="pts">
+        <li data-a="l"><span class="ic"><svg class="i" data-i="users"></svg></span><b>Membership Signs Off the Audience</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="pen"></svg></span><b>Marketing &amp; Communications Signs Off the Creative</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="link"></svg></span><b>Message and Landing Page Side by Side</b></li>
+        <li data-a="l"><span class="ic"><svg class="i" data-i="clock"></svg></span><b>Fast Track for Routine Sends</b></li>
+      </ul>
+    </div>
+    <div data-a="r"><figure class="shot" data-app="#/approve" data-cfg="as=carolina" data-w="1440" data-h="900" data-label="Approve · Creative sign-off"></figure>
+      <p class="cap"><span>Live prototype</span><span>Carolina Ng, Marketing &amp; Communications</span></p></div>
+  </div>
+</section>
+
+<!-- appendix b: getting started -->
+<section class="s alt" data-t="B · Getting started">
+  <p class="ov" data-a="f"><b>B</b>Appendix · Getting Started</p>
+  <h2 class="h" data-a>Start With One Quarter and Two Teams</h2>
+  <ol class="steps">
+    <li data-a><span class="n">01</span><b>Confirm the Pilot Data</b><span>CRM fields, event records, the eDM tool and WhatsApp consent.</span></li>
+    <li data-a><span class="n">02</span><b>Agree the Score and Sign-Off</b><span>What an engaged member looks like, and today's sign-off times.</span></li>
+    <li data-a><span class="n">03</span><b>Run One Quarter</b><span>Plan, send and learn in the tool, then choose the Portal modules.</span></li>
+  </ol>
+  <p class="motto" style="margin-top:auto" data-a="f">Mobilising business, magnifying opportunities</p>
+</section>
+
+<!-- appendix c: activity score -->
+<section class="s" data-t="C · Activity score">
+  <p class="ov" data-a="f"><b>C</b>Appendix · Activity Score</p>
+  <div class="split" style="grid-template-columns:380px 1fr;gap:56px;margin-top:20px">
+    <div>
+      <h2 class="h" style="font-size:50px" data-a>A Score Anyone Can Read</h2>
+      <div class="bands">
+        <div class="band" data-a="l"><i style="background:var(--hi)"></i>Active<span>70+</span></div>
+        <div class="band" data-a="l"><i style="background:var(--mid)"></i>Steady<span>40–69</span></div>
+        <div class="band" data-a="l"><i style="background:var(--lo)"></i>Needs Attention<span>&lt;40</span></div>
+      </div>
+    </div>
+    <div data-a="r"><figure class="shot" data-app="#/settings" data-cfg="as=cheryl" data-w="1440" data-h="900" data-label="Settings · Score weights and sign-off rules"></figure>
+      <p class="cap"><span>Live prototype. Weights must total 100.</span><span>Settings</span></p></div>
+  </div>
+</section>
+
+<!-- 18 appendix b: why native -->
+<section class="s alt" data-t="D · Why native">
+  <p class="ov" data-a="f"><b>D</b>Appendix · Why Native</p>
+  <h2 class="h" style="max-width:none;font-size:54px" data-a>More of the Member's Life With SBF, in One Place SBF Controls</h2>
+  <table class="tbl" style="margin-top:40px">
+    <thead data-a="f"><tr><th>Module</th><th>What SBF Gains</th><th>How It Feeds Marketing Intelligence</th></tr></thead>
+    <tbody>
+      <tr data-a><td>Registration</td><td>One application flow with checks, approval and a named welcome</td><td>New members trigger the Welcome Letter and onboarding entries</td></tr>
+      <tr data-a><td>Billing</td><td>Dues, renewals and invoices on the member record</td><td>Renewal dates and billing status shape who gets which message</td></tr>
+      <tr data-a><td>Payment Tracking</td><td>Live status, automatic reminders and fewer billing queries</td><td>Overdue members move to Needs Attention with a call as the next action</td></tr>
+      <tr data-a><td>Profiling</td><td>Members update their own details, interests and consent</td><td>Cleaner groups and consent for every channel, without Excel</td></tr>
+      <tr data-a><td>Activities</td><td>Event sign-ups, attendance and programmes recorded natively</td><td>Attendance feeds the activity score the moment it happens</td></tr>
+      <tr data-a><td>Upcoming</td><td>Matching, networks, benefits, surveys and an app, on the same record</td><td>Each new module adds a signal, so recommendations improve</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+
+
+<nav class="chrome" aria-label="Deck controls">
+  <button id="prev" aria-label="Previous slide">&#8592;</button><button id="next" aria-label="Next slide">&#8594;</button>
+  <span class="ct" id="ct">1 / 19</span><span class="ct" id="ttl"></span><span class="sp"></span>
+  <button id="nt" aria-label="Speaker notes" title="Speaker notes (N)" style="font:600 15px var(--font)">N</button><button id="pv" aria-label="Speaker window" title="Speaker window (P)" style="font:600 15px var(--font)">P</button>
+  <button id="fs" aria-label="Full screen">&#x26F6;</button>
+</nav>
+<aside class="notes" id="notes" aria-live="polite"></aside>
+
+<script>
+/* Icons (Lucide-style paths) */
+const IC={users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',chart:'<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
+cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',check:'<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+target:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',layers:'<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+lock:'<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',globe:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
+side:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/>',spark:'<path d="M12 3l1.9 5.8L20 10l-5 3.6L16.5 20 12 16.6 7.5 20 9 13.6 4 10l6.1-1.2z"/>',
+shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',upload:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/>',
+alert:'<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
+mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',letter:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+refresh:'<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>',news:'<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9h4"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/>',
+hand:'<path d="M18 11V6a2 2 0 0 0-4 0M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/>',
+chat:'<path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/>',linkedin:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>',
+clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',funnel:'<path d="M22 3H2l8 9.5V19l4 2v-8.5z"/>',keyboard:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M18 13h.01M8 16h8"/>',
+phone:'<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/>',link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+idcard:'<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M14 10h4M14 14h4M5 17c.5-1.5 1.7-2 3-2s2.5.5 3 2"/>',
+receipt:'<path d="M4 2v20l3-2 3 2 2-2 2 2 3-2 3 2V2l-3 2-3-2-2 2-2-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/>',coin:'<circle cx="12" cy="12" r="10"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/>',
+activity:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',db:'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/>',open:'<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
+document.querySelectorAll('svg.i[data-i]').forEach(s=>{s.setAttribute('viewBox','0 0 24 24');s.innerHTML=IC[s.dataset.i]||''});
+
+/* Standalone build: the prototype and templates are packed into window.__EMBED and served from blob URLs */
+const EMB=window.__EMBED||{},URLS={};
+function fileURL(name){
+  if(!EMB[name])return name;
+  if(!URLS[name]){const bin=atob(EMB[name]),u8=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u8[i]=bin.charCodeAt(i);
+    URLS[name]=URL.createObjectURL(new Blob([u8],{type:EMB[name+'#type']||'text/html'}));}
+  return URLS[name];
+}
+const APP='sbf-marketing-intelligence.html';
+document.querySelectorAll('img[src="SBF_LOGO_WHITE"]').forEach(i=>i.src=EMB['logo-white']?'data:image/png;base64,'+EMB['logo-white']:'sbf-logo-white.png');
+
+/* Live frames: the real page renders at its own size and is scaled into the frame */
+const srcOf=f=>f.dataset.file?fileURL(f.dataset.file):fileURL(APP)+(f.dataset.app||'');
+function mount(f){
+  if(f.querySelector('iframe'))return;
+  const w=+f.dataset.w,h=+f.dataset.h,fill=f.hasAttribute('data-fill');
+  const box=fill?f.parentElement.clientWidth:f.clientWidth,k=box/w;
+  f.innerHTML=(fill?'':`<div class="bar"><i></i><i></i><i></i><span>${f.dataset.label||''}</span><button type="button"><svg class="i" viewBox="0 0 24 24">${IC.open}</svg>Open</button></div><span class="live">LIVE</span>`)+
+    `<div class="vp" style="height:${fill?f.parentElement.clientHeight:Math.round(h*k)}px"><iframe title="${f.dataset.label||'Live prototype'}" style="width:${w}px;height:${h}px;transform:scale(${k})"></iframe></div>`;
+  const fr=f.querySelector('iframe');
+  // the prototype reads its settings (role, theme, panel to open) from the frame name, so set it before the first load
+  if(f.dataset.cfg!==undefined&&!f.dataset.file)fr.name='mi:'+f.dataset.cfg;
+  fr.src=srcOf(f);
+  fr.addEventListener('load',()=>setTimeout(()=>{if(document.activeElement===fr&&!f.matches(':hover'))fr.blur(),window.focus();},800));
+  const b=f.querySelector('.bar button');
+  if(b)b.onclick=()=>window.open(srcOf(f),f.dataset.file?'_blank':'mi:'+(f.dataset.cfg||''));
+}
+function unmount(f){if(f.querySelector('iframe'))f.innerHTML='';}
+
+/* Navigation */
+const slides=[...document.querySelectorAll('.s')],stage=document.getElementById('stage');
+// autoplay steps: number each slide's [data-a] elements in document order so they enter one after another
+slides.forEach(s=>s.querySelectorAll('[data-a]').forEach((el,i)=>el.style.setProperty('--d',i)));
+let cur=-1,outT=null;
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`translate(${(innerWidth-1920*k)/2}px,${(innerHeight-1080*k)/2}px) scale(${k})`;}
+function go(n){
+  n=Math.max(0,Math.min(slides.length-1,n));
+  if(n===cur)return;
+  // the slide being left plays its steps out while the next one plays its steps in
+  const prev=slides[cur];clearTimeout(outT);slides.forEach(s=>s.classList.remove('out'));
+  if(prev){prev.classList.add('out');outT=setTimeout(()=>prev.classList.remove('out'),420);}
+  cur=n;
+  slides.forEach((s,i)=>{s.classList.toggle('on',i===cur);
+    s.querySelectorAll('.shot').forEach(f=>Math.abs(i-cur)<=1?mount(f):unmount(f));}); // only the current and adjacent slides run live frames
+  document.getElementById('ct').textContent=`${cur+1} / ${slides.length}`;
+  document.getElementById('ttl').textContent=slides[cur].dataset.t;
+  document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%';
+  history.replaceState(null,'','#'+(cur+1));
+  renderNotes();
+}
+
+/* Speaker notes come from notes.json (inlined as window.__NOTES in the standalone build) */
+let NOTES=window.__NOTES||[],spk=null;
+if(!window.__NOTES)fetch('notes.json').then(r=>r.json()).then(n=>{NOTES=n;renderNotes();}).catch(()=>{});
+const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+function notesHTML(i){
+  const n=NOTES[i];if(!n)return '<p>No notes for this slide.</p>';
+  const left=NOTES.slice(i).reduce((a,x)=>a+(x.min||0),0);
+  return `<h5><span>${i+1}. ${esc(n.t)} · about ${n.min} min</span><span>${left.toFixed(1).replace('.0','')} min left</span></h5>`+
+    n.say.map(p=>`<p>${esc(p)}</p>`).join('')+(n.do?`<p class="do">${esc(n.do)}</p>`:'');
+}
+function renderNotes(){
+  document.getElementById('notes').innerHTML=notesHTML(cur);
+  if(spk&&!spk.closed){const d=spk.document,nx=NOTES[cur+1];
+    d.getElementById('now').innerHTML=notesHTML(cur);
+    d.getElementById('nx').textContent=nx?`Next: ${cur+2}. ${nx.t}`:'Last slide';}
+}
+function toggleNotes(){document.getElementById('notes').classList.toggle('on');}
+function openSpeaker(){
+  if(spk&&!spk.closed){spk.focus();return;}
+  spk=window.open('','sbf-speaker','width=760,height=640');
+  if(!spk)return;
+  spk.document.write(`<!doctype html><title>Speaker notes</title><style>body{margin:0;padding:28px 32px;background:#0B1428;color:#E6ECF7;font:400 20px/1.55 Inter,system-ui,sans-serif}
+    h5{margin:0 0 14px;font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7FD8EC;display:flex;justify-content:space-between;gap:20px}
+    p{margin:0 0 12px}.do{color:#F5C27A;font-size:17px}#nx{margin-top:24px;padding-top:16px;border-top:1px solid #23345C;color:#7D90B6;font-size:16px}
+    #t{float:right;font:600 28px Inter,sans-serif;color:#fff}.k{color:#61759D;font-size:14px;margin-top:10px}</style>
+    <div id="t">0:00</div><div id="now"></div><div id="nx"></div><p class="k">Arrow keys here move the deck too.</p>`);
+  spk.document.close();
+  const t0=Date.now();
+  const tick=()=>{if(spk.closed)return;const s=Math.floor((Date.now()-t0)/1000);spk.document.getElementById('t').textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0');setTimeout(tick,1000);};tick();
+  spk.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(cur+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}});
+  renderNotes();
+}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(cur+1)}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}
+  else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);
+  else if(e.key==='n'||e.key==='N')toggleNotes();
+  else if(e.key==='h'||e.key==='H')document.body.classList.toggle('tools');
+  else if(e.key==='p'||e.key==='P')openSpeaker();
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.()}
+});
+document.getElementById('prev').onclick=()=>go(cur-1);
+document.getElementById('next').onclick=()=>go(cur+1);
+document.getElementById('nt').onclick=toggleNotes;
+document.getElementById('pv').onclick=openSpeaker;
+document.getElementById('fs').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.();
+/* click the outer edges of a slide to move; clicks inside frames stay in the frame */
+stage.addEventListener('click',e=>{if(e.target.closest('.shot,a,button,iframe'))return;const x=e.clientX/innerWidth;if(x>.85)go(cur+1);else if(x<.15)go(cur-1);});
+/* after using a live frame, the deck keys work again once the pointer leaves it */
+document.addEventListener('mouseover',e=>{if(!e.target.closest('.shot')&&document.activeElement?.tagName==='IFRAME')document.activeElement.blur();});
+addEventListener('resize',()=>{fit();});
+fit();go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>

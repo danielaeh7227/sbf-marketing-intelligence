@@ -1,0 +1,180 @@
+[
+ {
+  "t": "Cover",
+  "min": 0.5,
+  "say": [
+   "Marketing Intelligence: one streamlined workflow to reach every member with the right message.",
+   "It brings Membership and Marketing & Communications onto one screen. Membership decides who hears from SBF; Marketing & Communications decides how it sounds."
+  ],
+  "do": "Let the live wave move for a few seconds before you speak."
+ },
+ {
+  "t": "Background",
+  "min": 1,
+  "say": [
+   "SBF's promise rests on two pillars.",
+   "Mobilise: bring the right members into the right rooms, through briefings, networks and consultations.",
+   "Magnify: make each member's next opportunity visible, through BizSpoke, grants, renewals and member stories.",
+   "Both pillars run on member communications. That is where we focus."
+  ]
+ },
+ {
+  "t": "The problem",
+  "min": 1.5,
+  "say": [
+   "From 16 department interviews and the member interviews, four problems stand out.",
+   "One: no single view of the member. Data is copied into Excel by hand.",
+   "Two: events compete and get buried. No shared calendar.",
+   "Three: one message for everyone. Members want relevance to their industry and role.",
+   "Four: no way to see what worked. Results never return to the member record."
+  ]
+ },
+ {
+  "t": "The solution",
+  "min": 1,
+  "say": [
+   "One workflow in five steps, with the member at the centre.",
+   "Each problem has a step. Know fixes the single view. Plan fixes the calendar. Create and Approve fix the one-size message. Learn shows what worked.",
+   "Sera, our assistant, drafts and recommends. People decide."
+  ]
+ },
+ {
+  "t": "User flow",
+  "min": 1.5,
+  "say": [
+   "Six steps: Plan, Create, Audience, Creative, Send, Learn.",
+   "Four rows, four stakeholders. Membership plans, approves the audience and acts on next steps.",
+   "Sera, highlighted in the middle row, checks, drafts, sends and learns.",
+   "Marketing & Communications approves the creative and reviews results.",
+   "Members receive, respond, and get the follow-up Learn recommends."
+  ],
+  "do": "Trace the arrows left to right with the pointer."
+ },
+ {
+  "t": "01 · Know",
+  "min": 1.5,
+  "say": [
+   "Problem one: no single view. Know is the answer.",
+   "Six sources join into one profile: CRM, events, email and WhatsApp, the website, and social signals.",
+   "An activity score at a glance, next best actions with the reason shown, and consent and renewal on the same page."
+  ],
+  "do": "Scroll the Kopi Lane profile to the next best actions."
+ },
+ {
+  "t": "02 · Plan",
+  "min": 1.5,
+  "say": [
+   "Problem two: events compete. Plan gives every department one calendar.",
+   "Sera warns about clashes and send fatigue before they happen.",
+   "Each entry takes a custom audience: member groups plus named companies. Add one entry, or import many by CSV."
+  ],
+  "do": "Open New Entry and show the audience picker."
+ },
+ {
+  "t": "03 · Create",
+  "min": 1.5,
+  "say": [
+   "Problem three: one message for everyone. Create fixes it.",
+   "Sera suggests channels across Email, LinkedIn and WhatsApp, and drafts a version for each member group.",
+   "Every message links to a landing page, existing or custom, and brand and consent checks run before sign-off."
+  ],
+  "do": "Switch the member group and the tone, then open the landing page preview."
+ },
+ {
+  "t": "03 · Templates",
+  "min": 1,
+  "say": [
+   "Eight templates, locked to the brand. Sera changes the words, not the look.",
+   "Six for Email, from the BizSpoke Newsletter to the Welcome Letter, plus a LinkedIn Post and a WhatsApp Message.",
+   "Each has a default timing, like three weeks before an event."
+  ]
+ },
+ {
+  "t": "04 · Learn",
+  "min": 1.5,
+  "say": [
+   "Problem four: no way to see what worked. Learn closes the loop.",
+   "A funnel per campaign, channels and groups compared, and Sera's post-mortem.",
+   "Follow-ups such as calling no-shows go straight to the calendar in one click."
+  ],
+  "do": "Click Add to calendar on a next action."
+ },
+ {
+  "t": "Work anywhere",
+  "min": 1,
+  "say": [
+   "Work anywhere, anytime, without boundaries.",
+   "The same home on desktop and phone. Ask SeraAI in plain words, and approve on the move.",
+   "Sera suggests. It never sends without both sign-offs."
+  ],
+  "do": "Point to the phone where Sera is answering."
+ },
+ {
+  "t": "Roles",
+  "min": 0.75,
+  "say": [
+   "Every step has a clear owner: Membership, Sera, Marketing & Communications, and other departments where they add entries or propose audiences.",
+   "Nobody waits without knowing whose turn it is."
+  ]
+ },
+ {
+  "t": "Rollout & next steps",
+  "min": 1.5,
+  "say": [
+   "Three phases. Phase 1, Engage, ships now: the calendar, AI drafts, fast-tracked sign-off and the activity score.",
+   "Phase 2, Understand, adds the full member journey: renewal risk and member matching.",
+   "Phase 3, Anticipate, forecasts who may lapse and which events will fill.",
+   "Phases 2 and 3 sit on one centralized member database, which also powers the Member Portal: registration, billing, payments, profiling and activities.",
+   "Phase 1 connects to the Nexus CRM, the eDM platform, the portals, forms, WhatsApp Business and LinkedIn."
+  ]
+ },
+ {
+  "t": "Live prototype",
+  "min": 1,
+  "say": [
+   "This is the system itself, live. Every screen you've seen is this one working prototype.",
+   "Start with one quarter and two teams. Thank you."
+  ],
+  "do": "Click into the frame and open a group from the sphere, or ask Sera a question."
+ },
+ {
+  "t": "Appendices",
+  "min": 0.25,
+  "say": [
+   "Reference slides for questions: the two sign-offs, how to get started, the activity score, and why a native portal."
+  ]
+ },
+ {
+  "t": "A · Approve",
+  "min": 0.5,
+  "say": [
+   "Two sign-offs, each team owning its part.",
+   "Membership signs off the audience. Marketing & Communications signs off the creative, with the message and landing page side by side.",
+   "Routine sends on an unchanged template take the fast track."
+  ]
+ },
+ {
+  "t": "B · Getting started",
+  "min": 0.5,
+  "say": [
+   "Start small: one quarter, two teams.",
+   "Confirm the pilot data, agree the score and sign-off, then run the quarter and choose the Portal modules together."
+  ]
+ },
+ {
+  "t": "C · Activity score",
+  "min": 0.5,
+  "say": [
+   "The score is built from what members do: events, opens, visits, programmes, social and good standing.",
+   "Membership sets the weights. Active is 70 and above, Needs Attention below 40."
+  ],
+  "do": "Adjust a weight to show it must total 100."
+ },
+ {
+  "t": "D · Why native",
+  "min": 0.5,
+  "say": [
+   "Each Portal module gives SBF control of more of the member's life, and each adds a signal that makes the recommendations better."
+  ]
+ }
+]

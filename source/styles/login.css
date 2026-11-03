@@ -1,0 +1,42 @@
+/* Sign-in: split screen, dot sea on the left (layout copied from the reference) */
+.login{display:grid;grid-template-columns:minmax(0,1fr) minmax(400px,1fr);min-height:100vh;background:#0B1428;color:#EEF2FA}
+.login-art{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 30% 10%,#13306A 0%,#0E2147 38%,#0A1630 100%)}
+.login-art .dots{position:absolute;inset:0;width:100%;height:100%}
+.login-top{position:absolute;top:44px;left:42px}
+.login-foot{position:absolute;left:70px;bottom:60px}
+.login-foot .mi-word{color:#fff;gap:0}.login-foot .mi-word b{font-size:1.85rem;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+.login-side{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;background:#0C1428;box-shadow:-30px 0 60px rgba(4,9,22,.45)}
+.login-card{width:min(400px,100%);display:flex;flex-direction:column;gap:18px;animation:pop .35s var(--ease)}
+.login h1{font-size:2.2rem;letter-spacing:-.02em}
+.login .lead{color:#9FB0CE;font-size:1.05rem;margin-top:-8px}
+.login .pick-h{margin-top:4px}
+.btn-ms{background:#fff;color:#0E1A33;padding:15px 22px;font-size:1rem}.btn-ms:hover{background:#E9EEF6}
+.login .btn-o{border-color:rgba(255,255,255,.18);color:#fff;padding:15px 22px;font-size:1rem}
+.or{display:flex;align-items:center;gap:16px;color:#8C9BB8;font-size:.9rem}.or::before,.or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.12)}
+.login form{display:flex;flex-direction:column;gap:18px}
+.login .field>span{font-size:.95rem}
+.login input{background:#111C35;border-color:rgba(255,255,255,.12);color:#fff;padding:14px 16px;font-size:1rem}
+.login input::placeholder{color:#8C9BB8}
+.login .field small{color:#9FB0CE;font-size:.88rem}
+.login .help{color:#9FB0CE;font-size:.9rem;margin-top:22px}
+.accounts{display:flex;flex-direction:column;gap:12px}
+.account{display:flex;align-items:center;gap:16px;text-align:left;padding:16px 18px;border-radius:var(--r-lg);border:1px solid rgba(255,255,255,.1);background:#101A33;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.account:hover:not(:disabled){border-color:var(--cyan);background:#13213F;transform:translateY(-1px)}
+.account:disabled{cursor:default}.account:disabled:not([data-busy=true]){opacity:.45}
+.account .av{width:48px;height:48px}
+.acc-tx{flex:1;display:flex;flex-direction:column}.acc-tx b{font-size:1.02rem}.acc-tx small{color:#9FB0CE;font-size:.88rem}
+.link-back{display:inline-flex;align-items:center;gap:10px;background:none;border:0;color:#C9D4E8;cursor:pointer;padding:6px 4px;font-weight:600;align-self:flex-start}
+.sent-ic{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:rgba(0,176,216,.15);color:var(--cyan-2)}
+.login .note{color:#8C9BB8}
+/* Narrow screens: the sea fills the screen and the card floats over it */
+@media (max-width:759px){
+  .login{display:block;position:relative}
+  .login-art{position:fixed;top:0;left:0;right:0;height:58vh}
+  .login-top{top:22px;left:20px}.login-foot{left:20px;top:84px;bottom:auto}
+  .login-foot .mi-word b{font-size:1.3rem}
+  .login-side{min-height:100vh;align-items:flex-end;padding:46vh 16px 32px;box-shadow:none;
+    background:linear-gradient(to bottom,rgba(12,20,40,0) 38vh,rgba(12,20,40,.9) 50vh,#0C1428 58vh)}
+}
+/* pitch deck cover: the deck supplies its own title, so only the dot sea shows, full width */
+.login.bare{grid-template-columns:1fr}
+.login.bare .login-top,.login.bare .login-foot,.login.bare .login-side{display:none}

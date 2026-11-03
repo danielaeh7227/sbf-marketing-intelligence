@@ -1,0 +1,31 @@
+/* Design tokens. Dark is the default (matches the reference); light swaps the surface tokens only. */
+:root{
+  /* brand */
+  --navy:#0E2147; --cyan:#00B0D8; --cyan-2:#36C5E6; --red:#E8212F; --red-2:#F03040; --orange:#F5A23A;
+  /* activity bands (sphere, scores, charts) */
+  --hi:#3DD68C; --mid:#00B0D8; --lo:#F5A23A;
+  /* type colours (calendar) */
+  --t-mice:#00B0D8; --t-promo:#F5A23A; --t-news:#9B8CFF; --t-onboard:#3DD68C; --t-announce:#F06A8A;
+
+  /* surfaces, dark */
+  --bg:#0B1428; --bg-2:#0A1225; --side:#0B1328; --panel:rgba(255,255,255,.035); --panel-2:rgba(255,255,255,.06); --panel-solid:#111C35;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --text:#EEF2FA; --text-2:#B9C5DC; --muted:#8C9BB8; --on-accent:#fff;
+  --nav-on:#16223D; --input:#0F1A33; --scrim:rgba(4,9,20,.6);
+  --ok:#3DD68C; --ok-bg:rgba(61,214,140,.12); --warn:#F5A23A; --warn-bg:rgba(245,162,58,.13); --info-bg:rgba(0,176,216,.12); --err:#FF6B76;
+
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:22px; --r-pill:999px;
+  --sh:0 18px 40px -18px rgba(0,0,0,.6);
+  --ease:cubic-bezier(.22,.61,.36,1); --spring:cubic-bezier(.34,1.56,.64,1);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F3F6FB; --bg-2:#EAF0F8; --side:#FFFFFF; --panel:#FFFFFF; --panel-2:#F2F5FA; --panel-solid:#FFFFFF;
+  --line:#E2E7F0; --line-2:#CED6E4;
+  --text:#0E2147; --text-2:#33476F; --muted:#64739A;
+  --nav-on:#E7F6FB; --input:#FFFFFF; --scrim:rgba(14,33,71,.35);
+  --ok:#1F9D63; --ok-bg:#E3F6EC; --warn:#C47A12; --warn-bg:#FCF1E0; --info-bg:#E5F6FB;
+  --sh:0 16px 36px -18px rgba(14,33,71,.25);
+  color-scheme:light;
+}
